@@ -31,6 +31,14 @@ public class Category implements Serializable {
 	@Column(name="modified_date")
 	private Timestamp modifiedDate;
 
+	//bi-directional many-to-one association to BusinessCategory
+	@OneToMany(mappedBy="category1")
+	private List<BusinessCategory> businessCategories1;
+
+	//bi-directional many-to-one association to BusinessCategory
+	@OneToMany(mappedBy="category2")
+	private List<BusinessCategory> businessCategories2;
+
 	//bi-directional many-to-one association to SubCategory
 	@OneToMany(mappedBy="category")
 	private List<SubCategory> subCategories;
@@ -76,6 +84,50 @@ public class Category implements Serializable {
 
 	public void setModifiedDate(Timestamp modifiedDate) {
 		this.modifiedDate = modifiedDate;
+	}
+
+	public List<BusinessCategory> getBusinessCategories1() {
+		return this.businessCategories1;
+	}
+
+	public void setBusinessCategories1(List<BusinessCategory> businessCategories1) {
+		this.businessCategories1 = businessCategories1;
+	}
+
+	public BusinessCategory addBusinessCategories1(BusinessCategory businessCategories1) {
+		getBusinessCategories1().add(businessCategories1);
+		businessCategories1.setCategory1(this);
+
+		return businessCategories1;
+	}
+
+	public BusinessCategory removeBusinessCategories1(BusinessCategory businessCategories1) {
+		getBusinessCategories1().remove(businessCategories1);
+		businessCategories1.setCategory1(null);
+
+		return businessCategories1;
+	}
+
+	public List<BusinessCategory> getBusinessCategories2() {
+		return this.businessCategories2;
+	}
+
+	public void setBusinessCategories2(List<BusinessCategory> businessCategories2) {
+		this.businessCategories2 = businessCategories2;
+	}
+
+	public BusinessCategory addBusinessCategories2(BusinessCategory businessCategories2) {
+		getBusinessCategories2().add(businessCategories2);
+		businessCategories2.setCategory2(this);
+
+		return businessCategories2;
+	}
+
+	public BusinessCategory removeBusinessCategories2(BusinessCategory businessCategories2) {
+		getBusinessCategories2().remove(businessCategories2);
+		businessCategories2.setCategory2(null);
+
+		return businessCategories2;
 	}
 
 	public List<SubCategory> getSubCategories() {

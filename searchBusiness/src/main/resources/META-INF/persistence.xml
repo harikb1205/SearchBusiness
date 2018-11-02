@@ -5,5 +5,18 @@
 		<class>model.SubCategory</class>
 		<class>model.User</class>
 		<class>model.UserRole</class>
+		<class>model.Address</class>
+		<class>model.AddressType</class>
+		<class>model.Business</class>
+		<class>model.BusinessAddress</class>
+		<class>model.BusinessAddressPK</class>
+		<class>model.BusinessCategory</class>
+		<class>model.BusinessCategoryPK</class>
+		<class>model.City</class>
+		<class>model.Country</class>
+		<class>model.LinkedBusiness</class>
+		<class>model.Photo</class>
+		<class>model.Preference</class>
+		<class>model.State</class>
 	</persistence-unit>
 </persistence>
